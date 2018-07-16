@@ -120,6 +120,8 @@ describe('Directive for Name Space', () => {
         expect(control.hasError('unique')).toBe(true);
         expect(control.errors.unique.valid).toBeFalsy();
         expect(control.errors.unique.existingSpace.name).toEqual('TestSpace');
+        let expectedMessage = 'The Space Name TestSpace  is already in use as name/TestSpace';
+        expect(control.errors.unique.message).toEqual(expectedMessage);
       });
    });
   }));
