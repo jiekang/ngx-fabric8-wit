@@ -58,7 +58,7 @@ export function uniqueSpaceNameValidator(
       .debounceTime(200)
       .distinctUntilChanged()
       .takeUntil(changed$)
-      .switchMap(value => userService.loggedInUser
+      .switchMap(() => userService.loggedInUser
         .switchMap(user => {
           return spaceService
             .getSpaceByName(user.attributes.username, control.value ? control.value.replace(' ', '_') : control.value)
@@ -72,7 +72,7 @@ export function uniqueSpaceNameValidator(
                 }
               };
             })
-            .catch(val => {
+            .catch(() => {
               return Observable.of(null);
             });
         }))

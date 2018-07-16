@@ -1,5 +1,5 @@
 import { async, TestBed } from '@angular/core/testing';
-import { ValidSpaceNameValidatorDirective, validSpaceNameValidator } from './valid-space-name.directive'
+import { ValidSpaceNameValidatorDirective } from './valid-space-name.directive';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
@@ -27,7 +27,6 @@ describe('Directive for Name Space', () => {
   it('Validate false when name starts with unsupported characters', async(() => {
     // given
     let fixture = TestBed.createComponent(TestSpaceNameComponent);
-    let comp = fixture.componentInstance;
     let debug = fixture.debugElement;
     let input = debug.query(By.css('input'));
     input.nativeElement.value = 'start';
@@ -101,7 +100,6 @@ describe('Directive for Name Space', () => {
     it('Validate false when there is too many characters', async(() => {
     // given
     let fixture = TestBed.createComponent(TestSpaceNameComponent);
-    let comp = fixture.componentInstance;
     let debug = fixture.debugElement;
     let input = debug.query(By.css('input'));
     input.nativeElement.value = 'start';

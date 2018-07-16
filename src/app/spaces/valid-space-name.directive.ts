@@ -58,7 +58,7 @@ export function validSpaceNameValidator(): AsyncValidatorFn {
       .debounceTime(50)
       .distinctUntilChanged()
       .takeUntil(changed$)
-      .map(value => {
+      .map(() => {
         if (!control.value || control.value.toString().length > ValidSpaceNameValidatorDirective.MAX_SPACE_NAME_LENGTH) {
           return {
             maxLength: {
@@ -85,7 +85,9 @@ export function validSpaceNameValidator(): AsyncValidatorFn {
               valid: false,
               requestedName: control.value,
               allowedChars: ALLOWED_SPACE_NAMES,
-              message: 'Space Name must contain only letters, numbers, underscores (_) or hyphens(-). It cannot start or end with an underscore or a hyphen'
+              message:
+                'Space Name must contain only letters, numbers, underscores (_)' +
+                'or hyphens(-). It cannot start or end with an underscore or a hyphen'
             }
           };
         }
