@@ -71,6 +71,17 @@ describe('Directive for Name Space', () => {
             'type': 'identities'
           }
         }
+      },
+      relationalData: {
+        creator: {
+          attributes: {
+            fullName: 'name',
+            imageURL: 'url',
+            username: 'name'
+          },
+          id: 'id',
+          type: 'type'
+        }
       }
     };
     TestBed.configureTestingModule({
